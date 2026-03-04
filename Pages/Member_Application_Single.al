@@ -1,4 +1,4 @@
-page 50108 "Member Application Single"
+page 50108 "Member Application Single List"
 {
     PageType = List;
     ApplicationArea = All;
@@ -13,11 +13,7 @@ page 50108 "Member Application Single"
         {
             repeater(group)
             {
-                field("Member NO"; Rec."Member NO")
-                {
-                    
-                }
-                field(FirstName;Rec.FirstName) {
+                field(FirstName;Rec."First Name") {
 
                 }
                 field("Last Name";Rec."Last Name") {
@@ -35,6 +31,9 @@ page 50108 "Member Application Single"
                 field(Gender;Rec.Gender) {
 
                 }
+                field(Status;Rec.Status) {
+
+                }
             }
 
         }
@@ -44,12 +43,20 @@ page 50108 "Member Application Single"
     {
         area(Processing)
         {
-            action(ActionName)
+            action(ApproveAll)
             {
                 
                 trigger OnAction()
+                var
+                    SelectedRecords: Record Member;
                 begin
-                    
+                    CurrPage.SetSelectionFilter(SelectedRecords);
+                    if SelectedRecords.FindSet() then
+                        repeat
+                            SelectedRecords.ApprovalStatus := ApprovalStatus::Approved;
+                            SelectedRecords.Modify();
+                        until SelectedRecords.Next() = 0;
+                    Message('Members Approved Successfullly!');
                 end;
             }
         }

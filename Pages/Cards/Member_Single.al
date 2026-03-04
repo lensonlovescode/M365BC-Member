@@ -1,22 +1,20 @@
-page 50105 "Member Single"
+page 50105 "Member Single Card"
 {
     PageType = Card;
     Editable = true;
     ApplicationArea = All;
-    UsageCategory = Administration;
     SourceTable = Member;
-    
+
     layout
     {
         area(Content)
         {
             group("Basic Info")
             {
-                field("Member NO"; Rec."Member NO")
-                {
-                    
+                field(Prefix;Rec.Prefix) {
+
                 }
-                field(FirstName;Rec.FirstName) {
+                field(FirstName;Rec."First Name") {
 
                 }
                 field("Last Name";Rec."Last Name") {
@@ -26,6 +24,15 @@ page 50105 "Member Single"
 
                 }
                 field(Gender; Rec.Gender) {
+
+                }
+                field(KRA;Rec.KRA) {
+
+                }
+                field(DOB;Rec.DOB) {
+
+                }
+                field(Passport;Rec.Passport) {
 
                 }
 
