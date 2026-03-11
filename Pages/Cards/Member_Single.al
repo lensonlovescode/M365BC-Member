@@ -101,6 +101,17 @@ page 50105 "Member Single Card"
                     Message('Export as PDF coming soon');
                 end;
             }
+            action("Fact of the Day")
+            {
+                trigger OnAction()
+                var
+                    FactOfTheDay: codeunit 50127;
+                    Fact: Text;
+                begin
+                    Fact := FactofTheDay.GetFact();
+                    Message(Fact);
+                end;
+            }
         }
         area(Navigation) {
 
