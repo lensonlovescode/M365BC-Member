@@ -21,7 +21,10 @@ table 50107 Gender
     }
 
     trigger OnInsert()
+    var
+        Setup: Record Gender;
     begin
+    
         
     end;
     

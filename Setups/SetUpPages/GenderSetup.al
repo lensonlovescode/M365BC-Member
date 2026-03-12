@@ -4,15 +4,19 @@ page 50110 "Gender Setup page"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = Gender;    
+
     layout
     {
         area(Content)
         {
-            group(GroupName)
+            group("Gender Set up")
             {
                 field(Gender;Rec.Gender)
                 {
                     
+                }
+                field(Description;Rec.Description) {
+
                 }
             }
         }

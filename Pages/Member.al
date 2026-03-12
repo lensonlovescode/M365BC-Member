@@ -1,11 +1,12 @@
-page 50108 "Member Application Single List"
+page 50113 "Member List"
 {
     PageType = List;
     ApplicationArea = All;
     Editable = false;
     UsageCategory = Administration;
     SourceTable = Member;
-    CardPageId = 50105;
+    SourceTableView = where(ApprovalStatus = const(ApprovalStatus::Approved));
+
     
     layout
     {
@@ -31,9 +32,6 @@ page 50108 "Member Application Single List"
                 field(Gender;Rec.Gender) {
 
                 }
-                field(Status;Rec.Status) {
-
-                }
             }
 
         }
@@ -43,20 +41,12 @@ page 50108 "Member Application Single List"
     {
         area(Processing)
         {
-            action(ApproveAll)
+            action(ActionName)
             {
                 
                 trigger OnAction()
-                var
-                    SelectedRecords: Record Member;
                 begin
-                    CurrPage.SetSelectionFilter(SelectedRecords);
-                    if SelectedRecords.FindSet() then
-                        repeat
-                            SelectedRecords.ApprovalStatus := ApprovalStatus::Approved;
-                            SelectedRecords.Modify();
-                        until SelectedRecords.Next() = 0;
-                    Message('Members Approved Successfullly!');
+
                 end;
             }
         }

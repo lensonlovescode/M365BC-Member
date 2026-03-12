@@ -4,15 +4,20 @@ table 50108 Prefix
     
     fields
     {
-        field(1; Prefix; Code[20])
+        field(1; "No."; Integer)
         {
-            DataClassification = ToBeClassified;
+        }
+        field(2; Prefix; Code[20]) {
+
+        }
+        field(3; Description; Text[50]) {
+
         }
     }
     
     keys
     {
-        key(Prefix; Prefix)
+        key(No; "No.")
         {
             Clustered = true;
         }
