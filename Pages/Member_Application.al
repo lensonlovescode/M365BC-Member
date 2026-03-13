@@ -34,7 +34,7 @@ page 50108 "Member Application List"
                 field(Gender;Rec.Gender) {
 
                 }
-                field(Status;Rec.Status) {
+                field(ApprovalStatus;Rec.ApprovalStatus) {
 
                 }
             }
@@ -60,6 +60,7 @@ page 50108 "Member Application List"
                             SelectedRecords.Modify();
                         until SelectedRecords.Next() = 0;
                     Message('Members Approved Successfullly!');
+                    CurrPage.Update();
                 end;
             }
         }

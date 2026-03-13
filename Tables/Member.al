@@ -176,9 +176,9 @@ table 50104 Member
         }
         field(26; ApprovalStatus; Enum ApprovalStatus)
         {
+            Caption = 'Approval Status';
             InitValue = Pending;
             DataClassification = ToBeClassified;
-            Caption = 'An enum field that defines displayed in the Members page';
             ToolTip = 'An enum field that defines displayed in the Members page';
         }
     }
@@ -196,9 +196,6 @@ table 50104 Member
         // Add changes to field groups here
     }
 
-    var
-        myInt: Integer;
-
     trigger OnInsert()
     var
         NumberSeriesHelper: Codeunit "No. Series";
@@ -210,13 +207,9 @@ table 50104 Member
         usageDate := currentDate + 365;
         if Rec."Member NO" = '' then begin
             if PrefixToUse.Get() then begin
-                Rec."Member NO" := NumberSeriesHelper.GetNextNo(Format(PrefixToUse.Prefix), usageDate, true);
-                Message(PrefixToUse.Prefix);
-                Message(NumberSeriesHelper.GetNextNo(Format(PrefixToUse.Prefix), usageDate, true));
-                // problem is line 215 nothing is displayed...
+                Rec."Member NO" := NumberSeriesHelper.GetNextNo(PrefixToUse.Prefix, usageDate, true);
             end;            
-        end else
-            Error('Please configure a number series');
+        end
     end;
 
     trigger OnModify()
