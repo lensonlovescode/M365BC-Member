@@ -189,6 +189,9 @@ table 50104 Member
         {
             Clustered = true;
         }
+        key("Approval Status"; ApprovalStatus) {
+            
+        }
     }
 
     fieldgroups

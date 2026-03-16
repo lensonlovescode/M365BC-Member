@@ -5,6 +5,7 @@ page 50108 "Member Application List"
     Editable = false;
     UsageCategory = Administration;
     SourceTable = Member;
+    SourceTableView = where(ApprovalStatus = filter(Pending));
     CardPageId = 50105;
     
     layout
@@ -48,18 +49,21 @@ page 50108 "Member Application List"
         {
             action(ApproveAll)
             {
+                Caption = 'Approve all';
                 Image = Approval;
                 trigger OnAction()
                 var
-                    SelectedRecords: Record Member;
+                    SelectedRecord: Record Member;
+                    EmailMessenger: Codeunit "Email Messenger";
                 begin
-                    CurrPage.SetSelectionFilter(SelectedRecords);
-                    if SelectedRecords.FindSet() then
+                    CurrPage.SetSelectionFilter(SelectedRecord);
+                    if SelectedRecord.FindSet() then
                         repeat
-                            SelectedRecords.ApprovalStatus := ApprovalStatus::Approved;
-                            SelectedRecords.Modify();
-                        until SelectedRecords.Next() = 0;
-                    Message('Members Approved Successfullly!');
+                            SelectedRecord.ApprovalStatus := ApprovalStatus::Approved;
+                            SelectedRecord.Modify();
+                            EmailMessenger.SendWelcomeEmailToMember(SelectedRecord);
+                        until SelectedRecord.Next() = 0;
+                    Message('All Members Approved Successfullly!');
                     CurrPage.Update();
                 end;
             }
@@ -70,7 +74,4 @@ page 50108 "Member Application List"
             }
         }
     }
-    
-    var
-        myInt: Integer;
 }
