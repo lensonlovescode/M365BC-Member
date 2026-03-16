@@ -33,10 +33,7 @@ codeunit 50120 "Email Messenger"
                     end;
                 until TempEmailAccount.Next() = 0;
                 // save failed emails to a table, and save all as draft (next git push iteration)
-                Message('Error: welcome email for' + Member."E-mail" + 'could not be sent');
-                if Confirm('Save email to ' + Member."E-mail" + ' as draft?') then begin
-                    Email.SaveAsDraft(EmailMessage);
-                end;
+                Email.SaveAsDraft(EmailMessage);
             end;
         end else
             exit;
