@@ -1,4 +1,4 @@
-page 50105 "Member Application Card"
+page 50101 "Member Application Card"
 {
     PageType = Card;
     Editable = true;
@@ -125,7 +125,7 @@ page 50105 "Member Application Card"
             {
                 trigger OnAction()
                 var
-                    FactOfTheDay: codeunit 50127;
+                    FactOfTheDay: codeunit 50102;
                     Fact: Text;
                 begin
                     Fact := FactofTheDay.GetFact();
@@ -148,15 +148,15 @@ page 50105 "Member Application Card"
                 prefixpage.RunModal();
             end else
                 CurrPage.Close();
-    
+
         end else
             if PrefixRecord.Prefix = '' then begin
-                
+
                 if Confirm('Prefix cannot be empty, Please set up a ') then begin
                     prefixpage.RunModal();
                 end else
                     CurrPage.Close();
-                
+
             end;
 
     end;

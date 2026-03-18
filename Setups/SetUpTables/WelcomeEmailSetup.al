@@ -1,4 +1,4 @@
-table 50126 WelcomeEmailSeup
+table 50101 WelcomeEmailSetupTable
 {
     DataClassification = ToBeClassified;
 

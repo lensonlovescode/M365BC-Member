@@ -1,4 +1,4 @@
-table 50131 RejectionEmailSetupTable
+table 50102 RejectionEmailSetupTable
 {
     DataClassification = ToBeClassified;
 

@@ -1,10 +1,11 @@
-page 50127 WelcomeEmailSetup
+page 50103 WelcomeEmailSetupPage
 // Next iteration, make it have multiple possibilities, multiple records for diferrent email sends
 {
     PageType = Card;
+    Caption = 'Welcome Email Setup Page';
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = WelcomeEmailSeup;
+    SourceTable = WelcomeEmailSetupTable;
     InsertAllowed = false;
     DeleteAllowed = false;
     

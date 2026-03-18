@@ -1,4 +1,4 @@
-page 50113 "Member List"
+page 50104 "Member List"
 {
     PageType = List;
     ApplicationArea = All;
@@ -7,43 +7,49 @@ page 50113 "Member List"
     SourceTable = Member;
     SourceTableView = where(ApprovalStatus = const(ApprovalStatus::Approved));
 
-    
+
     layout
     {
         area(Content)
         {
             repeater(group)
             {
-                field(FirstName;Rec."First Name") {
+                field(FirstName; Rec."First Name")
+                {
 
                 }
-                field("Last Name";Rec."Last Name") {
+                field("Last Name"; Rec."Last Name")
+                {
 
                 }
-                field(ID;Rec.ID) {
+                field(ID; Rec.ID)
+                {
 
                 }
-                field(Passport;Rec.Passport) {
+                field(Passport; Rec.Passport)
+                {
 
                 }
-                field(Phone;Rec.Phone) {
+                field(Phone; Rec.Phone)
+                {
 
                 }
-                field(Gender;Rec.Gender) {
+                field(Gender; Rec.Gender)
+                {
 
                 }
             }
 
         }
     }
-    
+
     actions
     {
         area(Processing)
         {
             action(ActionName)
             {
-                
+
                 trigger OnAction()
                 begin
 
@@ -51,7 +57,7 @@ page 50113 "Member List"
             }
         }
     }
-    
+
     var
         myInt: Integer;
 }

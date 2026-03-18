@@ -1,4 +1,4 @@
-page 50109 "Prefix setup page"
+page 50102 "Prefix setup page"
 // Issues
 // What if i insert and loose focus (onValidate runs when the field looses focus) and delete
 // will it also delete in the number series and number series line tables?
@@ -21,7 +21,8 @@ page 50109 "Prefix setup page"
                 {
                     // Question: when i add onValidate here it does not work but it works on the table field
                 }
-                field(Description; Rec.Description) {
+                field(Description; Rec.Description)
+                {
                     trigger OnValidate()
                     var
                         NoSeriesLineRecord: Record "No. Series";
@@ -29,11 +30,12 @@ page 50109 "Prefix setup page"
                         NoSeriesLineRecord.SetRange(Code, Rec.Prefix);
                         if NoSeriesLineRecord.FindFirst() then
                             NoSeriesLineRecord.validate(Description, Rec.Description);
-                            NoSeriesLineRecord.Modify(true);
+                        NoSeriesLineRecord.Modify(true);
                     end;
 
                 }
-                field("Starting Date";Rec."Starting Date") {
+                field("Starting Date"; Rec."Starting Date")
+                {
                     trigger OnValidate()
                     var
                         NoSeriesLineRecord: Record "No. Series Line";
@@ -41,10 +43,11 @@ page 50109 "Prefix setup page"
                         NoSeriesLineRecord.SetRange("Series Code", Rec.Prefix);
                         if NoSeriesLineRecord.FindFirst() then
                             NoSeriesLineRecord.validate("Starting Date", Rec."Starting Date");
-                            NoSeriesLineRecord.Modify(true);
+                        NoSeriesLineRecord.Modify(true);
                     end;
                 }
-                field("Starting No.";Rec."Starting No.") {
+                field("Starting No."; Rec."Starting No.")
+                {
                     trigger OnValidate()
                     var
                         NoSeriesLineRecord: Record "No. Series Line";
@@ -52,11 +55,12 @@ page 50109 "Prefix setup page"
                         NoSeriesLineRecord.SetRange("Series Code", Rec.Prefix);
                         if NoSeriesLineRecord.FindFirst() then
                             NoSeriesLineRecord.validate("Starting No.", Rec."Starting No.");
-                            NoSeriesLineRecord.Modify(true);
+                        NoSeriesLineRecord.Modify(true);
                     end;
 
                 }
-                field("Ending No.";Rec."Ending No.") {
+                field("Ending No."; Rec."Ending No.")
+                {
                     trigger OnValidate()
                     var
                         NoSeriesLineRecord: Record "No. Series Line";
@@ -64,11 +68,12 @@ page 50109 "Prefix setup page"
                         NoSeriesLineRecord.SetRange("Series Code", Rec.Prefix);
                         if NoSeriesLineRecord.FindFirst() then
                             NoSeriesLineRecord.validate("Ending No.", Rec."Ending No.");
-                            NoSeriesLineRecord.Modify(true);
+                        NoSeriesLineRecord.Modify(true);
                     end;
 
                 }
-                field("Increment-by No.";Rec."Increment-by No.") {
+                field("Increment-by No."; Rec."Increment-by No.")
+                {
                     trigger OnValidate()
                     var
                         NoSeriesLineRecord: Record "No. Series Line";
@@ -76,11 +81,12 @@ page 50109 "Prefix setup page"
                         NoSeriesLineRecord.SetRange("Series Code", Rec.Prefix);
                         if NoSeriesLineRecord.FindFirst() then
                             NoSeriesLineRecord.validate("Increment-by No.", Rec."Increment-by No.");
-                            NoSeriesLineRecord.Modify(true);
+                        NoSeriesLineRecord.Modify(true);
                     end;
 
                 }
-                field("Last No. Used";Rec."Last No. Used") {
+                field("Last No. Used"; Rec."Last No. Used")
+                {
                     trigger OnValidate()
                     var
                         NoSeriesLineRecord: Record "No. Series Line";
@@ -88,14 +94,16 @@ page 50109 "Prefix setup page"
                         NoSeriesLineRecord.SetRange("Series Code", Rec.Prefix);
                         if NoSeriesLineRecord.FindFirst() then
                             NoSeriesLineRecord.validate("Last No. Used", Rec."Last No. Used");
-                            NoSeriesLineRecord.Modify(true);
+                        NoSeriesLineRecord.Modify(true);
                     end;
                 }
             }
         }
     }
-    actions {
-        area(Processing) {
+    actions
+    {
+        area(Processing)
+        {
             action("Re-enter")
             {
                 trigger OnAction()
@@ -104,8 +112,10 @@ page 50109 "Prefix setup page"
                 end;
             }
         }
-        area(Promoted) {
-            actionref("Re-Enter Values"; "Re-enter") {
+        area(Promoted)
+        {
+            actionref("Re-Enter Values"; "Re-enter")
+            {
             }
         }
     }

@@ -1,4 +1,4 @@
-table 50104 Member
+table 50100 Member
 {
     DataClassification = ToBeClassified;
 
@@ -45,7 +45,7 @@ table 50104 Member
             DataClassification = EndUserIdentifiableInformation;
 
         }
-        field(50106; Gender; Code[20])
+        field(27; Gender; Code[20])
         {
             Caption = 'Gender';
             DataClassification = EndUserIdentifiableInformation;
@@ -189,8 +189,9 @@ table 50104 Member
         {
             Clustered = true;
         }
-        key("Approval Status"; ApprovalStatus) {
-            
+        key("Approval Status"; ApprovalStatus)
+        {
+
         }
     }
 
@@ -211,7 +212,7 @@ table 50104 Member
         if Rec."Member NO" = '' then begin
             if PrefixToUse.Get() then begin
                 Rec."Member NO" := NumberSeriesHelper.GetNextNo(PrefixToUse.Prefix, usageDate, true);
-            end;            
+            end;
         end
     end;
 

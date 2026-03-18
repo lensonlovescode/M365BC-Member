@@ -1,4 +1,4 @@
-codeunit 50127 FactOfTheDay
+codeunit 50102 FactOfTheDay
 {
     procedure GetFact(): Text
     var
