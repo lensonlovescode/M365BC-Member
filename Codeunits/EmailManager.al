@@ -67,21 +67,16 @@ codeunit 50101 "Email Messenger"
         EmailBody := WelcomeEmailSetupRecord.GetRichText();
 
         EmailBody := EmailBody.Replace('{Member ID}', Member."Member NO");
-        // EmailBody := EmailBody.Replace('{Application ID}', Member."Application ID"); // Field does not exist in Member table
         EmailBody := EmailBody.Replace('{First Name}', Member."First Name");
         EmailBody := EmailBody.Replace('{Last Name}', Member."Last Name");
         EmailBody := EmailBody.Replace('{Email}', Member."E-mail");
         EmailBody := EmailBody.Replace('{Phone Number}', Member.Phone);
         EmailBody := EmailBody.Replace('{Date of Birth}', Format(Member.DOB));
         EmailBody := EmailBody.Replace('{Address}', Member."Address");
-        // EmailBody := EmailBody.Replace('{City}', Member."City"); // Field does not exist in Member table
         EmailBody := EmailBody.Replace('{Postal Code}', Member."Postal Code");
-        // EmailBody := EmailBody.Replace('{Country}', Member."Country"); // Field does not exist in Member table
         EmailBody := EmailBody.Replace('{ID/Passport Number}', Member.ID);
         EmailBody := EmailBody.Replace('{Registration Date}', Format(Member."Registration Date"));
         EmailBody := EmailBody.Replace('{Member Status}', Format(Member."Status"));
-        // EmailBody := EmailBody.Replace('{Occupation}', Member."Occupation"); // Field does not exist in Member table
-        // EmailBody := EmailBody.Replace('{Annual Income}', Format(Member."Annual Income")); // Field does not exist in Member table
         EmailBody := EmailBody.Replace('{Member Category}', Member.Prefix);
 
         exit(EmailBody);
@@ -97,23 +92,15 @@ codeunit 50101 "Email Messenger"
 
         EmailBody := RejectionEmailSetupRecord.GetRichText();
 
-        // EmailBody := EmailBody.Replace('{Application ID}', MemberRejected."Application ID"); // Field does not exist in Member table
         EmailBody := EmailBody.Replace('{First Name}', MemberRejected."First Name");
         EmailBody := EmailBody.Replace('{Last Name}', MemberRejected."Last Name");
         EmailBody := EmailBody.Replace('{Email}', MemberRejected."E-mail");
         EmailBody := EmailBody.Replace('{Phone Number}', MemberRejected.Phone);
         EmailBody := EmailBody.Replace('{Date of Birth}', Format(MemberRejected.DOB));
         EmailBody := EmailBody.Replace('{Address}', MemberRejected."Address");
-        // EmailBody := EmailBody.Replace('{City}', MemberRejected."City"); // Field does not exist in Member table
         EmailBody := EmailBody.Replace('{Postal Code}', MemberRejected."Postal Code");
-        // EmailBody := EmailBody.Replace('{Country}', MemberRejected."Country"); // Field does not exist in Member table
         EmailBody := EmailBody.Replace('{ID Number}', MemberRejected.ID);
         EmailBody := EmailBody.Replace('{Application Date}', Format(MemberRejected."Registration Date"));
-        EmailBody := EmailBody.Replace('{Status}', Format(MemberRejected."Status"));
-        // EmailBody := EmailBody.Replace('{Approval Date}', Format(MemberRejected."Approval Date")); // Field does not exist in Member table
-        // EmailBody := EmailBody.Replace('{Rejection Reason}', MemberRejected."Rejection Reason"); // Field does not exist in Member table
-        // EmailBody := EmailBody.Replace('{Occupation}', MemberRejected."Occupation"); // Field does not exist in Member table
-        // EmailBody := EmailBody.Replace('{Annual Income}', Format(MemberRejected."Annual Income")); // Field does not exist in Member table
         EmailBody := EmailBody.Replace('{Member Category}', MemberRejected.Prefix);
 
         exit(EmailBody);

@@ -213,7 +213,7 @@ table 50100 Member
             if PrefixToUse.Get() then begin
                 Rec."Member NO" := NumberSeriesHelper.GetNextNo(PrefixToUse.Prefix, usageDate, true);
             end;
-        end
+        end;
     end;
 
     trigger OnModify()

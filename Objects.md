@@ -13,3 +13,5 @@
 | Codeunit | 50100 | FieldValidator |
 | Codeunit | 50101 | Email Messenger |
 | Codeunit | 50102 | FactOfTheDay |
+| codeunit | 50103 | "Member Manager" |
+| codeunit | 50104 | "SMS Manager" |
